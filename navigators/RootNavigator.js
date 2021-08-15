@@ -2,10 +2,12 @@ import { Ionicons as Icon } from '@expo/vector-icons'
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 // navigators
 import ShopNavigator from './ShopNavigator'
 import UserAccountNavigator from './UserAccountNavigator'
 import CartNavigator from './CartNavigator'
+import AuthNavigator from './AuthNavigator'
 
 const Tab = createBottomTabNavigator();
 const tabScreenOptions = ({ route }) => ({
@@ -33,14 +35,27 @@ const tabScreenOptions = ({ route }) => ({
   headerShown: false,
 })
 
+const TabNavigator = () => {
+  return (
+    <Tab.Navigator screenOptions={tabScreenOptions}>
+      <Tab.Screen name="Shop" component={ShopNavigator} />
+      <Tab.Screen name="Cart" component={CartNavigator} />
+      <Tab.Screen name="Account" component={UserAccountNavigator} />
+    </Tab.Navigator>
+  )
+}
+
+
+const Stack = createStackNavigator();
+
 const RootNavigator = () => {
   return (
     <NavigationContainer >
-      <Tab.Navigator screenOptions={tabScreenOptions}>
-        <Tab.Screen name="Shop" component={ShopNavigator} />
-        <Tab.Screen name="Cart" component={CartNavigator} />
-        <Tab.Screen name="Account" component={UserAccountNavigator} />
-      </Tab.Navigator>
+      <Stack.Navigator >
+        <Stack.Screen name="Tabs" component={TabNavigator} options={{headerShown: false}} />
+        <Stack.Screen name="Auth" component={AuthNavigator} options={{headerShown: false}} />
+        {/* <Stack.Screen name="Settings" component={SettingsNavigator} /> */}
+      </Stack.Navigator>
     </NavigationContainer>
   )
 }
