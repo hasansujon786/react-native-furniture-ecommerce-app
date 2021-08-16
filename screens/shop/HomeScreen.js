@@ -3,38 +3,7 @@ import { Box, FlatList } from 'native-base';
 import React from 'react';
 // components
 import ProductPreview from '../../components/ProductPreview'
-const PRODUCTS = [
-  {
-    id: '00',
-    title: 'Storage Drawer and Fixed Shelf',
-    imgPreview: 'https://m.media-amazon.com/images/I/71ICpn3ZyML._AC_UL320_.jpg',
-    longTitle: 'Signature Design by Ashley Tyler Creek Rustic End Table with Storage Drawer and Fixed Shelf, Brown & Black',
-    price: 182.99,
-    discount: 0,
-    quantity: 10,
-    isAvalable: true
-  },
-  {
-    id: '01',
-    title: 'Storage Drawer and Fixed Shelf',
-    imgPreview: 'https://m.media-amazon.com/images/I/71ICpn3ZyML._AC_UL320_.jpg',
-    longTitle: 'Signature Design by Ashley Tyler Creek Rustic End Table with Storage Drawer and Fixed Shelf, Brown & Black',
-    price: 182.99,
-    discount: 0,
-    quantity: 10,
-    isAvalable: true
-  },
-  {
-    id: '01',
-    title: 'Storage Drawer and Fixed Shelf',
-    imgPreview: 'https://m.media-amazon.com/images/I/71ICpn3ZyML._AC_UL320_.jpg',
-    longTitle: 'Signature Design by Ashley Tyler Creek Rustic End Table with Storage Drawer and Fixed Shelf, Brown & Black',
-    price: 182.99,
-    discount: 0,
-    quantity: 10,
-    isAvalable: true
-  },
-]
+import { PRODUCTS } from '../../data/dummy'
 
 export default function HomeScreen({ navigation }) {
   return (
