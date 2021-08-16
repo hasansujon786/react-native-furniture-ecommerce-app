@@ -8,6 +8,7 @@ import ShopNavigator from './ShopNavigator'
 import UserAccountNavigator from './UserAccountNavigator'
 import CartNavigator from './CartNavigator'
 import AuthNavigator from './AuthNavigator'
+import ProductScreen from '../screens/shop/ProductScreen'
 
 const Tab = createBottomTabNavigator();
 const tabScreenOptions = ({ route }) => ({
@@ -54,7 +55,7 @@ const RootNavigator = () => {
       <Stack.Navigator >
         <Stack.Screen name="Tabs" component={TabNavigator} options={{headerShown: false}} />
         <Stack.Screen name="Auth" component={AuthNavigator} options={{headerShown: false}} />
-        {/* <Stack.Screen name="Settings" component={SettingsNavigator} /> */}
+        <Stack.Screen name="Product" component={ProductScreen} options={{headerShown: false}} />
       </Stack.Navigator>
     </NavigationContainer>
   )

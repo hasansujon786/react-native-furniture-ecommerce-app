@@ -1,6 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { Box, Button, FormControl, Heading, Input, ScrollView, Text, VStack, HStack } from 'native-base'
 import React from 'react';
+// componets
+import FatButton from '../../components/FatButton'
 
 function SignUpScreen({ navigation }) {
   return (
@@ -75,17 +77,14 @@ function SignUpScreen({ navigation }) {
             />
           </FormControl>
         </VStack>
-        <VStack space={2} mt={8} mb={12}>
-          <Button colorScheme='gray' bg='gray.800' size='lg' rounded={10}>SIGN UP</Button>
-          <Button
-            onPress={() => navigation.navigate('SignIn')}
-            colorScheme='gray' variant='ghost' size='lg' rounded={10}
-          >
+        <VStack space={4} mt={8} mb={12}>
+          <FatButton primary>SIGN UP</FatButton>
+          <FatButton onPress={() => navigation.navigate('SignIn')}>
             <HStack justifyContent='center' alignItems='center' space={1}>
               <Text color='muted.400'>Already have an account?</Text>
               <Text fontSize='lg'>SIGN IN</Text>
             </HStack>
-          </Button>
+          </FatButton>
         </VStack>
         <StatusBar style="auto" />
       </Box>
