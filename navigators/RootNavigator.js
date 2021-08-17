@@ -9,6 +9,7 @@ import UserAccountNavigator from './UserAccountNavigator'
 import CartNavigator from './CartNavigator'
 import AuthNavigator from './AuthNavigator'
 import ProductScreen from '../screens/shop/ProductScreen'
+import Colors from '../constants/Colors';
 
 const Tab = createBottomTabNavigator();
 const tabScreenOptions = ({ route }) => ({
@@ -52,10 +53,14 @@ const Stack = createStackNavigator();
 const RootNavigator = () => {
   return (
     <NavigationContainer >
-      <Stack.Navigator >
-        <Stack.Screen name="Tabs" component={TabNavigator} options={{headerShown: false}} />
-        <Stack.Screen name="Auth" component={AuthNavigator} options={{headerShown: false}} />
-        <Stack.Screen name="Product" component={ProductScreen} options={{headerShown: false}} />
+      <Stack.Navigator
+        screenOptions={{
+          cardStyle: { backgroundColor: Colors.defaultBG }
+        }}
+      >
+        <Stack.Screen name="Tabs" component={TabNavigator} options={{ headerShown: false }} />
+        <Stack.Screen name="Auth" component={AuthNavigator} options={{ headerShown: false }} />
+        <Stack.Screen name="Product" component={ProductScreen} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   )

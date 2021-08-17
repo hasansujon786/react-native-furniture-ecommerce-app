@@ -1,8 +1,9 @@
 import React from 'react'
 import { TouchableOpacity } from 'react-native'
-import { Box, Image, Heading, VStack, IconButton } from 'native-base'
+import { Box, Image, Heading, VStack, } from 'native-base'
 // componets
-import Icon from '../components/Icon'
+import IconButton from './IconButton'
+import Icon from './Icon'
 
 const ProductPreview = ({ imageUrl, title, price, onSelect, height = 210, width = '100%', ...props }) => {
   return (
@@ -18,8 +19,12 @@ const ProductPreview = ({ imageUrl, title, price, onSelect, height = 210, width 
             width='100%'
             height='100%'
           />
-          <Box width={10} position='absolute' bottom={2} right={2}>
-            <IconButton rounded={10} colorScheme='gray' bg='#00000030' variant='solid' size='md' icon={<Icon color='white' name='cart' size='sm' />} />
+          <Box width={12} position='absolute' bottom={2} right={2}>
+            <IconButton
+              bg='#00000020'
+              _pressed={{ bg: '#00000040' }}
+              icon={<Icon name='cart-outline' color='white' />}
+            />
           </Box>
         </Box>
         <VStack mt={1}>
