@@ -3,13 +3,15 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
-// navigators
-import ShopNavigator from './ShopNavigator'
-import UserAccountNavigator from './UserAccountNavigator'
-import CartNavigator from './CartNavigator'
-import AuthNavigator from './AuthNavigator'
-import ProductScreen from '../screens/shop/ProductScreen'
 import Colors from '../constants/Colors';
+// navigators
+import UserAccountNavigator from './UserAccountNavigator'
+import AuthNavigator from './AuthNavigator'
+import ShopNavigator from './ShopNavigator'
+import FavoriteNavigator from './FavoriteNavigator'
+// screens
+import ProductScreen from '../screens/shop/ProductScreen'
+import CartScreen from '../screens/CartScreen'
 
 const Tab = createBottomTabNavigator();
 const tabScreenOptions = ({ route }) => ({
@@ -17,14 +19,17 @@ const tabScreenOptions = ({ route }) => ({
     let iconName
 
     switch (route.name) {
-      case 'Shop':
+      case 'ShopTab':
         iconName = focused ? 'home' : 'home-outline'
         break
-      case 'Account':
+      case 'AccountTab':
         iconName = focused ? 'person' : 'person-outline'
         break
-      case 'Cart':
+      case 'CartTab':
         iconName = focused ? 'cart' : 'cart-outline'
+        break
+      case 'FavoriteTab':
+        iconName = focused ? 'bookmark' : 'bookmark-outline'
         break
       default:
         iconName = 'reorder-two'
@@ -40,9 +45,9 @@ const tabScreenOptions = ({ route }) => ({
 const TabNavigator = () => {
   return (
     <Tab.Navigator screenOptions={tabScreenOptions}>
-      <Tab.Screen name="Shop" component={ShopNavigator} />
-      <Tab.Screen name="Cart" component={CartNavigator} />
-      <Tab.Screen name="Account" component={UserAccountNavigator} />
+      <Tab.Screen name="ShopTab" component={ShopNavigator} />
+      <Tab.Screen name="FavoriteTab" component={FavoriteNavigator} />
+      <Tab.Screen name="AccountTab" component={UserAccountNavigator} />
     </Tab.Navigator>
   )
 }
@@ -61,6 +66,7 @@ const RootNavigator = () => {
         <Stack.Screen name="Tabs" component={TabNavigator} options={{ headerShown: false }} />
         <Stack.Screen name="Auth" component={AuthNavigator} options={{ headerShown: false }} />
         <Stack.Screen name="Product" component={ProductScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Cart" component={CartScreen} options={{ title: 'My Cart', headerShown: true }} />
       </Stack.Navigator>
     </NavigationContainer>
   )

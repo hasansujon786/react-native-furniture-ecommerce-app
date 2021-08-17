@@ -7,6 +7,7 @@ import { Dimensions } from 'react-native'
 import Icon from '../../components/Icon'
 import IconButton from '../../components/IconButton'
 import FatButton from '../../components/FatButton'
+import CountController from '../../components/CountController'
 import Colors from '../../constants/Colors'
 
 const { width } = Dimensions.get('screen')
@@ -57,15 +58,7 @@ const ProductScreen = ({ navigation, route }) => {
             <Box flex={1}>
               <Heading color='gray.700' size='2xl'>${foundProduct.price}</Heading>
             </Box>
-            <HStack alignItems='center' flexBasis={120} justifyContent='space-between'>
-              <IconButton
-                icon={<Icon name='remove-outline' size='xs' />}
-              />
-              <Text fontSize='lg'>1</Text>
-              <IconButton
-                icon={<Icon name='add-outline' size='xs' />}
-              />
-            </HStack>
+            <CountController/>
           </HStack>
         </Stack>
 
