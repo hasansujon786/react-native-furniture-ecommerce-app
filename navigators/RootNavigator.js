@@ -40,6 +40,7 @@ const tabScreenOptions = ({ route }) => ({
   tabBarActiveTintColor: 'black',
   tabBarInactiveTintColor: 'gray',
   headerShown: false,
+  tabBarShowLabel: false
 })
 
 const TabNavigator = () => {
@@ -66,7 +67,7 @@ const RootNavigator = () => {
         <Stack.Screen name="Tabs" component={TabNavigator} options={{ headerShown: false }} />
         <Stack.Screen name="Auth" component={AuthNavigator} options={{ headerShown: false }} />
         <Stack.Screen name="Product" component={ProductScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Cart" component={CartScreen} options={{ title: 'My Cart', headerShown: true }} />
+        <Stack.Screen name="Cart" component={CartScreen} options={{ title: 'My Cart', headerShown: true, headerTitleAlign: 'center' }} />
       </Stack.Navigator>
     </NavigationContainer>
   )
