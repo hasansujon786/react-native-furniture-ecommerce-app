@@ -11,7 +11,7 @@ const ShopNavigator = () => {
         cardStyle: { backgroundColor: Colors.defaultBG }
       }}
     >
-      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
       {/* <Stack.Screen name="Settings" component={SettingsNavigator} /> */}
     </Stack.Navigator>
   )

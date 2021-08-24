@@ -54,9 +54,7 @@ function CartScreen({ navigation }) {
             <Heading color='muted.400' size='md'>Total:</Heading>
             <Heading color='gray.700' size='md'>$234</Heading>
           </HStack>
-          <Box height={12}>
-            <FatButton flex={1} primary>Check out</FatButton>
-          </Box>
+          <FatButton flex={1} primary>Check out</FatButton>
         </Stack>
       </Stack>
       <StatusBar style="auto" />

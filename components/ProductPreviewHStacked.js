@@ -8,7 +8,7 @@ function ProductPreviewHStacked({ title, imageUrl, height = 100, price, onSelect
       <HStack space={2}>
         <TouchableOpacity onPress={onSelect}>
           <Box
-            borderColor='muted.200'
+            borderColor='muted.100'
             borderWidth={1}
             bg='white'
             rounded='lg'

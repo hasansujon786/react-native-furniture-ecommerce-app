@@ -9,7 +9,7 @@ const ProductPreview = ({ imageUrl, title, price, onSelect, height = 210, width 
   return (
     <TouchableOpacity useForeground onPress={onSelect}>
       <Box width={width} {...props}>
-        <Box bg='white' height={height} rounded={10} overflow='hidden'>
+        <Box borderColor='muted.100' bg='white' borderWidth={1} p={4} height={height} rounded={10} overflow='hidden'>
           <Image
             source={{
               uri: imageUrl,
@@ -19,11 +19,11 @@ const ProductPreview = ({ imageUrl, title, price, onSelect, height = 210, width 
             width='100%'
             height='100%'
           />
-          <Box width={12} position='absolute' bottom={2} right={2}>
+          <Box width={10} position='absolute' bottom={2} right={2}>
             <IconButton
               bg='#00000020'
-              _pressed={{ bg: '#00000040' }}
-              icon={<Icon name='cart-outline' color='white' />}
+              _pressed={{ bg: '#00000030' }}
+              icon={<Icon size='sm' name='bookmark' color='white' />}
             />
           </Box>
         </Box>
