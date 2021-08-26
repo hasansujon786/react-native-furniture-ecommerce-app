@@ -28,8 +28,8 @@ const ProductPreview = ({ imageUrl, title, price, onSelect, height = 210, width 
           </Box>
         </Box>
         <VStack mt={1}>
-          <Heading size='sm' numberOfLines={2} color='muted.400'>{title}</Heading>
-          <Heading size='sm'>$ {price}</Heading>
+          <Heading fontWeight='normal' size='xs' numberOfLines={2} color='gray.500'>{title}</Heading>
+          <Heading fontWeight='bold' size='sm' color='gray.700'>$ {price}</Heading>
         </VStack>
       </Box>
     </TouchableOpacity>
