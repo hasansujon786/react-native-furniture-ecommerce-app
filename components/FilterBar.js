@@ -19,9 +19,9 @@ function Pill({ selected, label }) {
   )
 }
 
-const FilterBar = () => {
+const FilterBar = ({ height = 70, ...props }) => {
   return (
-    <Box my={2} >
+    <Box style={{ height }} {...props}>
       <ScrollView pl={3} horizontal showsHorizontalScrollIndicator={false}>
         <Pill selected label='Popular' />
         <Pill label='something' />

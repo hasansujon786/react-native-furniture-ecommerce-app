@@ -1,33 +1,28 @@
 import { StatusBar } from 'expo-status-bar';
-import { Box, FlatList, HStack, IconButton, Stack, Text } from 'native-base';
+import { Box, FlatList, } from 'native-base';
+import Animated, { useSharedValue, useAnimatedScrollHandler } from 'react-native-reanimated'
 import React from 'react';
+import { PRODUCTS } from '../../data/dummy'
 // components
 import ProductPreview from '../../components/ProductPreview'
-import Icon from '../../components/Icon'
-import FilterBar from '../../components/FilterBar'
-import { PRODUCTS } from '../../data/dummy'
+import AnimatedHeader, { HEADER_MAX_HEIGHT } from '../../components/AnimatedHeader'
+
+const AnimatedFlatList = Animated.createAnimatedComponent(FlatList)
 
 export default function HomeScreen({ navigation }) {
+  const scrollYSharedValue = useSharedValue(0)
+  const scrollHandler = useAnimatedScrollHandler((event) => {
+    scrollYSharedValue.value = event.contentOffset.y
+  })
+
   return (
     <Box flex={1}>
-      <HStack px={2} mt={5} justifyContent='space-between' alignItems='center'>
-        <IconButton rounded='pill' variant='ghost' colorScheme='light'
-          icon={<Icon name='search-outline' size='sm' />}
-        />
-        <Stack justifyContent='center' alignItems='center'>
-          <Text mr={1} fontSize='xs' color='muted.400' fontWeight='bold'>MAKE HOME</Text>
-          <Text fontWeight='bold'>BEAUTIFUL</Text>
-        </Stack>
-        <IconButton rounded='pill' variant='ghost' colorScheme='light'
-          icon={<Icon name='cart-outline' size='sm' />}
-        />
-      </HStack>
+      <AnimatedHeader scrollY={scrollYSharedValue} ></AnimatedHeader>
 
-      <FilterBar />
-
-      <FlatList
-        pt={2}
-        contentContainerStyle={{ paddingHorizontal: 6 }}
+      <AnimatedFlatList
+        contentContainerStyle={{ paddingTop: HEADER_MAX_HEIGHT + 12, paddingHorizontal: 6 }}
+        scrollEventThrottle={16}
+        onScroll={scrollHandler}
         data={PRODUCTS}
         numColumns={2}
         renderItem={(data) => (
@@ -48,6 +43,6 @@ export default function HomeScreen({ navigation }) {
 
       <StatusBar style="auto" />
     </Box>
-  );
+  )
 }
 
