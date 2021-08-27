@@ -23,18 +23,14 @@ function ProductPreviewHStacked({ title, imageUrl, height = 100, price, onSelect
 
         <Stack justifyContent='space-between' flex={1} >
           <HStack justifyContent='space-between'>
-            <TouchableOpacity style={{ flex: 1 }} onPress={onSelect}>
-              <Heading color='gray.700' noOfLines={3} size='sm' fontWeight='normal'>
-                Dolor minima illo maior Elit alias quod ex at mollitia asperiores? Similique facere eum sunt laborum
-              </Heading>
-            </TouchableOpacity>
+            <Box flex={1} mt={1}>
+              <Heading fontWeight='normal' size='xs' numberOfLines={2} color='gray.500'>{title}</Heading>
+            </Box>
             {topRightElement && topRightElement}
           </HStack>
 
           <HStack alignItems='center'>
-            <Heading flex={1} color='gray.700' size='sm' fontWeight='bold'>
-              ${price.toFixed(2)}
-            </Heading>
+            <Heading flex={1} fontWeight='bold' size='sm' color='gray.700'>$ {price.toFixed(2)}</Heading>
             {children}
           </HStack>
         </Stack>

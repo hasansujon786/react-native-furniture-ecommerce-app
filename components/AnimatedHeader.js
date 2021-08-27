@@ -31,7 +31,7 @@ const AnimatedHeader = ({ scrollY }) => {
     const elevation = interpolate(
       scrollY.value,
       [0, (HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT)],
-      [0, 2],
+      [0, 3],
       Extrapolate.CLAMP
     )
 

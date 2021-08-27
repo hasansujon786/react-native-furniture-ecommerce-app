@@ -22,7 +22,7 @@ function Pill({ selected, label }) {
 const FilterBar = ({ height = 70, ...props }) => {
   return (
     <Box style={{ height }} {...props}>
-      <ScrollView pl={3} horizontal showsHorizontalScrollIndicator={false}>
+      <ScrollView contentContainerStyle={{ paddingLeft: 12 }} horizontal showsHorizontalScrollIndicator={false}>
         <Pill selected label='Popular' />
         <Pill label='something' />
         <Pill label='something' />

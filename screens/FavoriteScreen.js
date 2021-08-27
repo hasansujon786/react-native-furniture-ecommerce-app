@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { FlatList, Heading, Stack, HStack, Box } from 'native-base';
+import { FlatList, Stack, Box } from 'native-base';
 import React, { useEffect, useState } from 'react';
 
 import Colors from '../constants/Colors'
@@ -22,12 +22,13 @@ const FavoriteScreen = ({ navigation }) => {
         data={foundFavoriteItems}
         renderItem={(data) => (
           <ProductPreviewHStacked
+            onSelect={() => navigation.navigate('Product', { productId: data.item.id })}
             mt={3}
-            title='hello'
-            imageUrl='https://m.media-amazon.com/images/I/71ICpn3ZyML._AC_UL320_.jpg'
-            price={23}
+            title={data.item.title}
+            imageUrl={data.item.imgPreview}
+            price={data.item.price}
             topRightElement={
-              <Box>
+              <Box >
                 <IconButton
                   bg='transparent'
                   icon={<Icon color='muted.400' name='close-circle-outline' size='xs' />}
@@ -38,7 +39,7 @@ const FavoriteScreen = ({ navigation }) => {
             <Box>
               <IconButton
                 bg='transparent'
-                icon={<Icon color='muted.800' name='cart' size='sm' />}
+                icon={<Icon color='muted.700' name='cart' size='sm' />}
               />
             </Box>
           </ProductPreviewHStacked>
@@ -47,7 +48,6 @@ const FavoriteScreen = ({ navigation }) => {
 
       <Stack right={0} left={0} bottom={0} position='absolute' space={2} px={3} pb={3} bg={Colors.defaultBG}>
         <FatButton flex={1} primary>Add to my cart</FatButton>
-        {/* <FatButton onPress={() => navigation.navigate('Cart')}>Go to Cart</FatButton> */}
       </Stack>
       <StatusBar style="auto" />
     </Box>

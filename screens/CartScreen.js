@@ -23,10 +23,11 @@ function CartScreen({ navigation }) {
         data={foundCartItems}
         renderItem={(data) => (
           <ProductPreviewHStacked
+            onSelect={() => navigation.navigate('Product', { productId: data.item.id })}
             mt={3}
-            title='hello'
-            imageUrl='https://m.media-amazon.com/images/I/71ICpn3ZyML._AC_UL320_.jpg'
-            price={23}
+            title={data.item.title}
+            imageUrl={data.item.imgPreview}
+            price={data.item.price}
             topRightElement={
               <Box>
                 <IconButton
