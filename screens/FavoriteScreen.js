@@ -23,6 +23,7 @@ const FavoriteScreen = ({ navigation }) => {
         renderItem={(data) => (
           <ProductPreviewHStacked
             onSelect={() => navigation.navigate('Product', { productId: data.item.id })}
+            renderChildrenReversed
             mt={3}
             title={data.item.title}
             imageUrl={data.item.imgPreview}

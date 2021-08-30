@@ -2,7 +2,7 @@ import React from 'react'
 import { TouchableOpacity } from 'react-native'
 import { Box, Heading, HStack, Image, Stack } from 'native-base'
 
-function ProductPreviewHStacked({ title, imageUrl, height = 100, price, onSelect, children, topRightElement, ...props }) {
+function ProductPreviewHStacked({ title, imageUrl, height = 100, price, onSelect, children, renderChildrenReversed, topRightElement, ...props }) {
   return (
     <Box height={height} {...props}>
       <HStack space={2}>
@@ -29,9 +29,9 @@ function ProductPreviewHStacked({ title, imageUrl, height = 100, price, onSelect
             {topRightElement && topRightElement}
           </HStack>
 
-          <HStack alignItems='center'>
-            <Heading flex={1} fontWeight='bold' size='sm' color='gray.700'>$ {price.toFixed(2)}</Heading>
+          <HStack alignItems='center' flexDirection={renderChildrenReversed ? 'row-reverse' : 'row'} justifyContent='space-between'>
             {children}
+            <Heading fontWeight='bold' size='sm' color='gray.700'>$ {price.toFixed(2)}</Heading>
           </HStack>
         </Stack>
       </HStack>

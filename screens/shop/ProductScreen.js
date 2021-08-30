@@ -1,68 +1,41 @@
 import { StatusBar } from 'expo-status-bar'
-import React from 'react'
-import { Box, HStack, IconButton, ScrollView, Text, Heading, Image, Stack } from 'native-base'
+import React, { useMemo } from 'react'
+import { Box, HStack, ScrollView, Text, Heading, Stack } from 'native-base'
 import { PRODUCTS } from '../../data/dummy'
-import { Dimensions } from 'react-native'
 
 import Icon from '../../components/Icon'
 import IconButtonM from '../../components/IconButton'
 import FatButton from '../../components/FatButton'
 import CountController from '../../components/CountController'
+import ProductImageSlider from '../../components/ProductImageSlider'
 import Colors from '../../constants/Colors'
-
-const { width } = Dimensions.get('screen')
 
 const ProductScreen = ({ navigation, route }) => {
   const foundProduct = PRODUCTS.find(pod => pod.id == route.params.productId)
 
+  const foundImages = useMemo(() => {
+    return [
+      'https://images.unsplash.com/photo-1604176424472-17cd740f74e9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80',
+      'https://images.unsplash.com/photo-1575032617751-6ddec2089882?ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+      'https://images.unsplash.com/photo-1572196284554-4e321b0e7e0b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80',
+      'https://images.unsplash.com/photo-1548863227-3af567fc3b27?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=375&q=80',
+      'https://images.unsplash.com/photo-1506094543314-3747d5123bbe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=334&q=80',
+    ]
+  }, [])
+
+
   return (
     <Box flex={1}>
       <ScrollView>
-        <HStack>
-          <Box flex={1} alignItems='flex-end'>
-            <Stack width={12} mt={12} position='relative' right={-20} zIndex={1}>
-              <IconButton
-                rounded={12}
-                bg='white'
-                colorScheme='dark'
-                variant='solid'
-                onPress={() => navigation.goBack()}
-                shadow={0}
-                icon={<Icon name='chevron-back-outline' mr={1} />}
-              />
-
-              <Stack mt={8} space={1} bg='white' shadow={0} rounded='pill'>
-                <IconButton
-                  colorScheme='light'
-                  rounded='pill'
-                  icon={<Icon name='ellipse-outline' />}
-                />
-                <IconButton
-                  colorScheme='light'
-                  rounded='pill'
-                  icon={<Icon name='ellipse-outline' />}
-                />
-                <IconButton
-                  colorScheme='light'
-                  rounded='pill'
-                  icon={<Icon name='ellipse-outline' />}
-                />
-              </Stack>
-            </Stack>
-          </Box>
-          <Box borderWidth={1} borderColor='muted.100' height={400} width={width * 0.90} bg='white' roundedBottomLeft={40} alignItems='flex-end'>
-            <Image width='100%' height='100%' resizeMode='contain' alt={foundProduct.title} source={{ uri: foundProduct.imgPreview }} />
-          </Box>
-        </HStack>
-
-        <Stack space={2} px={3} mt={3}>
-          <Box>
-            <Heading lineHeight='28px' fontWeight='normal' size='md' color='gray.700'>{foundProduct.title}</Heading>
-          </Box>
+        <ProductImageSlider images={foundImages} />
+        <Stack space={1} px={3} mt={3}>
           <HStack >
             <Heading flex={1} color='gray.700' size='xl'>$ {foundProduct.price}</Heading>
             <CountController />
           </HStack>
+          <Box>
+            <Heading lineHeight='28px' fontWeight='normal' size='md' color='gray.700'>{foundProduct.title}</Heading>
+          </Box>
         </Stack>
 
         <Stack px={3} mt={3}>
