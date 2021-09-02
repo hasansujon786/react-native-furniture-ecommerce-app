@@ -5,10 +5,10 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import Colors from '../constants/Colors';
 // navigators
-import UserAccountNavigator from './UserAccountNavigator'
-import AuthNavigator from './AuthNavigator'
 import ShopNavigator from './ShopNavigator'
 import FavoriteNavigator from './FavoriteNavigator'
+import ProfileNavigator from './ProfileNavigator'
+import AuthNavigator from './AuthNavigator'
 // screens
 import ProductScreen from '../screens/shop/ProductScreen'
 import CartScreen from '../screens/CartScreen'
@@ -22,7 +22,7 @@ const tabScreenOptions = ({ route }) => ({
       case 'ShopTab':
         iconName = focused ? 'home' : 'home-outline'
         break
-      case 'AccountTab':
+      case 'ProfileTab':
         iconName = focused ? 'person' : 'person-outline'
         break
       case 'CartTab':
@@ -48,7 +48,7 @@ const TabNavigator = () => {
     <Tab.Navigator screenOptions={tabScreenOptions}>
       <Tab.Screen name="ShopTab" component={ShopNavigator} />
       <Tab.Screen name="FavoriteTab" component={FavoriteNavigator} />
-      <Tab.Screen name="AccountTab" component={UserAccountNavigator} />
+      <Tab.Screen name="ProfileTab" component={ProfileNavigator} />
     </Tab.Navigator>
   )
 }
