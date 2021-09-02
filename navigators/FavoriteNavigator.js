@@ -6,6 +6,7 @@ import FavoriteScreen from '../screens/FavoriteScreen'
 import Colors from '../constants/Colors';
 import Icon from '../components/Icon'
 import HeaderButtons from '../components/HeaderButtonsWrapper'
+import { headerStyle } from '../constants/globalStyles'
 
 
 const Stack = createStackNavigator();
@@ -14,7 +15,8 @@ const FavoriteNavigator = () => {
     <Stack.Navigator
       screenOptions={{
         cardStyle: { backgroundColor: Colors.defaultBG },
-        headerTitleAlign: 'center'
+        headerTitleAlign: 'center',
+        headerStyle: headerStyle,
       }}
     >
       <Stack.Screen name="Favorite" component={FavoriteScreen}

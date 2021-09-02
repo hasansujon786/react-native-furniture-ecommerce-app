@@ -4,14 +4,14 @@ import { Box, Heading, HStack, Image, Stack } from 'native-base'
 
 function ProductPreviewHStacked({ title, imageUrl, height = 100, price, onSelect, children, renderChildrenReversed, topRightElement, ...props }) {
   return (
-    <Box height={height} {...props}>
+    <Box px={3} py={2} bg='white' {...props}>
       <HStack space={2}>
         <TouchableOpacity onPress={onSelect}>
           <Box
             borderColor='muted.100'
             borderWidth={1}
             bg='white'
-            rounded='lg'
+            rounded='xl'
             overflow='hidden'
             height={height}
             width={height}

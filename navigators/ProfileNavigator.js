@@ -6,7 +6,7 @@ import AccountScreen from '../screens/AccountScreen'
 import Colors from '../constants/Colors';
 import Icon from '../components/Icon'
 import HeaderButtons from '../components/HeaderButtonsWrapper'
-import { headerStyles } from '../constants/globalStyles'
+import { headerStyle } from '../constants/globalStyles'
 
 const Stack = createStackNavigator();
 const ProfileNavigator = () => {
@@ -15,7 +15,7 @@ const ProfileNavigator = () => {
       screenOptions={{
         cardStyle: { backgroundColor: Colors.defaultBG },
         headerTitleAlign: 'center',
-        headerStyle: headerStyles,
+        headerStyle: headerStyle,
       }}
     >
       <Stack.Screen name="Profile" component={AccountScreen} options={{
