@@ -1,5 +1,6 @@
 const Colors = {
-  defaultBG: '#fafafa',
+  // defaultBG: '#fafafa',
+  defaultBG: '#FBFBFB',
   gray50: 'hsl(0, 0%, 98%)',
 }
 
