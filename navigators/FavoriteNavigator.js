@@ -3,22 +3,15 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { IconButton } from 'native-base'
 
 import FavoriteScreen from '../screens/FavoriteScreen'
-import Colors from '../constants/Colors';
 import Icon from '../components/Icon'
 import HeaderButtons from '../components/HeaderButtonsWrapper'
-import { headerStyle } from '../constants/globalStyles'
+import { headerStyles } from '../constants/globalStyles'
 
 
 const Stack = createStackNavigator();
 const FavoriteNavigator = () => {
   return (
-    <Stack.Navigator
-      screenOptions={{
-        cardStyle: { backgroundColor: Colors.defaultBG },
-        headerTitleAlign: 'center',
-        headerStyle: headerStyle,
-      }}
-    >
+    <Stack.Navigator screenOptions={headerStyles} >
       <Stack.Screen name="Favorite" component={FavoriteScreen}
         options={{
           headerLeft: () => <HeaderButtons>

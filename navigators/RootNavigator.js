@@ -1,9 +1,10 @@
 import { Ionicons as Icon } from '@expo/vector-icons'
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, DefaultTheme, } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
-import Colors from '../constants/Colors';
+import { headerStyles } from '../constants/globalStyles'
+import Colors from '../constants/Colors'
 // navigators
 import ShopNavigator from './ShopNavigator'
 import FavoriteNavigator from './FavoriteNavigator'
@@ -12,6 +13,7 @@ import AuthNavigator from './AuthNavigator'
 import CartNavigator from './CartNavigator'
 // screens
 import ProductScreen from '../screens/shop/ProductScreen'
+import ReviewScreen from '../screens/ReviewScreen'
 
 const Tab = createBottomTabNavigator();
 const tabScreenOptions = ({ route }) => ({
@@ -54,20 +56,20 @@ const TabNavigator = () => {
 }
 
 
+const navTheme = DefaultTheme;
+navTheme.colors.background = Colors.defaultBG
+
 const Stack = createStackNavigator();
 
 const RootNavigator = () => {
   return (
-    <NavigationContainer >
-      <Stack.Navigator
-        screenOptions={{
-          cardStyle: { backgroundColor: Colors.defaultBG }
-        }}
-      >
+    <NavigationContainer theme={navTheme}>
+      <Stack.Navigator >
         <Stack.Screen name="Tabs" component={TabNavigator} options={{ headerShown: false }} />
         <Stack.Screen name="Auth" component={AuthNavigator} options={{ headerShown: false }} />
         <Stack.Screen name="Cart" component={CartNavigator} options={{ headerShown: false }} />
         <Stack.Screen name="Product" component={ProductScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Review" component={ReviewScreen} options={{ ...headerStyles, title: 'Ragitng & Review' }} />
       </Stack.Navigator>
     </NavigationContainer>
   )
