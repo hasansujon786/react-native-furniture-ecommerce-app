@@ -4,11 +4,12 @@ import { Box, HStack, ScrollView, Text, Heading, Stack } from 'native-base'
 import { PRODUCTS } from '../../data/dummy'
 
 import Icon from '../../components/Icon'
-import IconButtonM from '../../components/IconButton'
+import IconButton from '../../components/IconButton'
 import FatButton from '../../components/FatButton'
-import CountController from '../../components/CountController'
 import ProductImageSlider from '../../components/ProductImageSlider'
-import Colors from '../../constants/Colors'
+import Ratings from '../../components/Ratings'
+import BottomActionBar from '../../components/BottomActionBar'
+// import Colors from '../../constants/Colors'
 
 const ProductScreen = ({ navigation, route }) => {
   const foundProduct = PRODUCTS.find(pod => pod.id == route.params.productId)
@@ -28,14 +29,23 @@ const ProductScreen = ({ navigation, route }) => {
     <Box flex={1}>
       <ScrollView>
         <ProductImageSlider images={foundImages} />
-        <Stack space={1} px={3} mt={3}>
-          <HStack >
-            <Heading flex={1} color='gray.700' size='xl'>$ {foundProduct.price}</Heading>
-            <CountController />
+        <Stack space={1} px={3} py={4} bg='white'>
+          <HStack justifyContent='space-between' alignItems='center'>
+            <Heading color='gray.700' size='lg'>$ {foundProduct.price}</Heading>
+            <HStack space={2}>
+              <IconButton
+                variant='ghost'
+                size='sm'
+                icon={<Icon size='sm' name='share-social-outline' />}
+              />
+            </HStack>
           </HStack>
           <Box>
-            <Heading lineHeight='28px' fontWeight='normal' size='md' color='gray.700'>{foundProduct.title}</Heading>
+            <Text fontSize='md' lineHeight='24px' color='gray.600'>{foundProduct.title}</Text>
           </Box>
+          <HStack mt={2}>
+            <Ratings size={3}>(4.3)</Ratings>
+          </HStack>
         </Stack>
 
         <Stack px={3} mt={3}>
@@ -49,13 +59,13 @@ const ProductScreen = ({ navigation, route }) => {
         <Box height={24} />
       </ScrollView>
 
-      <HStack space={3} shadow={3} p={3} bg={Colors.defaultBG} right={0} left={0} bottom={0} position='absolute'>
-        <IconButtonM
+      <BottomActionBar >
+        <IconButton
           size='lg'
           icon={<Icon name='bookmark-outline' size='md' />}
         />
         <FatButton flex={1} primary>Add to cart</FatButton>
-      </HStack>
+      </BottomActionBar>
       <StatusBar style='auto' />
     </Box>
   )

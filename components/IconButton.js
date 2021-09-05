@@ -1,11 +1,16 @@
 import React from 'react'
 import { IconButton } from 'native-base'
+const variants = {
+  solid: {
+    backgroundColor: 'gray.100'
+  }
+}
 
-export default ({ size = 'md', colorScheme = 'dark', icon, ...props }) => {
+export default ({ size = 'md', variant = 'solid', colorScheme = 'light', icon, ...props }) => {
   return (
     <IconButton
-      variant='solid'
-      bg={colorScheme == 'dark' ? 'muted.50' : 'gray.800'}
+      variant={variant}
+      bg={variants[variant] && variants[variant]}
       colorScheme={colorScheme}
       rounded={12}
       size={size}

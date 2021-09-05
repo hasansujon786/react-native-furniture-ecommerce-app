@@ -1,10 +1,26 @@
 import React from 'react'
-import { NativeBaseProvider } from 'native-base';
+import { extendTheme, NativeBaseProvider } from "native-base";
 import RootNavigator from './navigators/RootNavigator'
+
+const theme = extendTheme({
+  components: {
+    IconButton: {
+      variants: {
+        solid: ({ colorScheme }) => {
+          return {
+            // backgroundColor: colorScheme == 'light' && 'gray.100',
+            _pressed: { backgroundColor: colorScheme == 'light' && 'gray.300', }
+          }
+        }
+      },
+    }
+  }
+});
+
 
 export default function App() {
   return (
-    <NativeBaseProvider>
+    <NativeBaseProvider theme={theme}>
       <RootNavigator />
     </NativeBaseProvider>
   )
