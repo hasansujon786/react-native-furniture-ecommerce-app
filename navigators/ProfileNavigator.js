@@ -19,7 +19,7 @@ const ProfileNavigator = () => {
       }}
     >
       <Stack.Screen name="Profile" component={AccountScreen} options={{
-        title: 'PROFILE',
+        title: 'Profile',
         headerRight: () => <HeaderButtons>
           {({ navigation }) => (
             <IconButton onPress={() => navigation.navigate('Cart')} rounded='pill' variant='ghost' colorScheme='light'

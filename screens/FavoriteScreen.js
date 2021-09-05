@@ -54,7 +54,7 @@ const FavoriteScreen = ({ navigation }) => {
         justifyContent='flex-start'
         bg='white' right={0} left={0} bottom={0} position='absolute' space={2} px={3}
       >
-        <FatButton primary>Add to my cart</FatButton>
+        <FatButton primary>Add all to cart</FatButton>
       </Stack>
       {loading && <FullpageSpinner />}
       <StatusBar style="auto" />

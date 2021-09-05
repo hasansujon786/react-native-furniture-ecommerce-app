@@ -4,15 +4,14 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import Colors from '../constants/Colors';
-import { headerStyle } from '../constants/globalStyles';
 // navigators
 import ShopNavigator from './ShopNavigator'
 import FavoriteNavigator from './FavoriteNavigator'
 import ProfileNavigator from './ProfileNavigator'
 import AuthNavigator from './AuthNavigator'
+import CartNavigator from './CartNavigator'
 // screens
 import ProductScreen from '../screens/shop/ProductScreen'
-import CartScreen from '../screens/CartScreen'
 
 const Tab = createBottomTabNavigator();
 const tabScreenOptions = ({ route }) => ({
@@ -67,10 +66,8 @@ const RootNavigator = () => {
       >
         <Stack.Screen name="Tabs" component={TabNavigator} options={{ headerShown: false }} />
         <Stack.Screen name="Auth" component={AuthNavigator} options={{ headerShown: false }} />
+        <Stack.Screen name="Cart" component={CartNavigator} options={{ headerShown: false }} />
         <Stack.Screen name="Product" component={ProductScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Cart" component={CartScreen}
-          options={{ title: 'My Cart', headerTitleAlign: 'center', headerStyle: headerStyle }}
-        />
       </Stack.Navigator>
     </NavigationContainer>
   )
