@@ -11,6 +11,7 @@ import FavoriteNavigator from './FavoriteNavigator'
 import ProfileNavigator from './ProfileNavigator'
 import AuthNavigator from './AuthNavigator'
 import CartNavigator from './CartNavigator'
+import NotificationNavigator from './NotificationNavigator'
 // screens
 import ProductScreen from '../screens/shop/ProductScreen'
 import ReviewScreen from '../screens/ReviewScreen'
@@ -33,6 +34,9 @@ const tabScreenOptions = ({ route }) => ({
       case 'FavoriteTab':
         iconName = focused ? 'bookmark' : 'bookmark-outline'
         break
+      case 'NotificationTab':
+        iconName = focused ? 'notifications' : 'notifications-outline'
+        break
       default:
         iconName = 'reorder-two'
     }
@@ -50,6 +54,7 @@ const TabNavigator = () => {
     <Tab.Navigator screenOptions={tabScreenOptions}>
       <Tab.Screen name="ShopTab" component={ShopNavigator} />
       <Tab.Screen name="FavoriteTab" component={FavoriteNavigator} />
+      <Tab.Screen name="NotificationTab" component={NotificationNavigator} />
       <Tab.Screen name="ProfileTab" component={ProfileNavigator} />
     </Tab.Navigator>
   )

@@ -13,6 +13,13 @@ const ProfileNavigator = () => {
     <Stack.Navigator screenOptions={headerStyles} >
       <Stack.Screen name="Profile" component={AccountScreen} options={{
         title: 'Profile',
+        headerLeft: () => <HeaderButtons>
+          {() => (
+            <IconButton rounded='pill' variant='ghost' colorScheme='light'
+              icon={<Icon name='search-outline' size='sm' />}
+            />
+          )}
+        </HeaderButtons>,
         headerRight: () => <HeaderButtons>
           {({ navigation }) => (
             <IconButton onPress={() => navigation.navigate('Cart')} rounded='pill' variant='ghost' colorScheme='light'

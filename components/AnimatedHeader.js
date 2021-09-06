@@ -52,7 +52,6 @@ const AnimatedHeader = ({ scrollY }) => {
     <Animated.View style={[styles.animatedHeaderContainer, rHeaderStyles]}>
       <HStack style={{ height: HEADER_MIN_HEIGHT }} px={2} pt={8} justifyContent='space-between' alignItems='flex-start'>
         <IconButton
-          onPress={() => navigation.navigate('Search')}
           rounded='pill' variant='ghost' colorScheme='light'
           icon={<Icon name='search-outline' size='sm' />}
         />
