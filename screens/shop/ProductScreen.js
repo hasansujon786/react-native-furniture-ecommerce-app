@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar'
 import React, { useMemo } from 'react'
-import { Box, HStack, ScrollView, Text, Heading, Stack } from 'native-base'
+import { Box, HStack, ScrollView, Text, Heading, Stack, Link } from 'native-base'
 import { PRODUCTS } from '../../data/dummy'
 
 import Icon from '../../components/Icon'
@@ -9,7 +9,8 @@ import FatButton from '../../components/FatButton'
 import ProductImageSlider from '../../components/ProductImageSlider'
 import Ratings from '../../components/Ratings'
 import BottomActionBar from '../../components/BottomActionBar'
-// import Colors from '../../constants/Colors'
+import ReviewList from '../../components/ReviewList'
+import Colors from '../../constants/Colors'
 
 const ProductScreen = ({ navigation, route }) => {
   const foundProduct = PRODUCTS.find(pod => pod.id == route.params.productId)
@@ -48,14 +49,32 @@ const ProductScreen = ({ navigation, route }) => {
           </HStack>
         </Stack>
 
-        <Stack px={3} mt={3}>
-          <Text fontSize='md' lineHeight='24px' color='gray.500'>Consectetur consequatur quo voluptates adipisci ipsa. Dolorem quaerat veritatis deserunt nihil aliquam Aspernatur dolorum ad autem ipsum iusto officiis Omnis.</Text>
-          <Text fontSize='md' lineHeight='24px' color='gray.500'>Consectetur consequatur quo voluptates adipisci ipsa. Dolorem quaerat veritatis deserunt nihil aliquam Aspernatur dolorum ad autem ipsum iusto officiis Omnis.</Text>
-          <Text fontSize='md' lineHeight='24px' color='gray.500'>Consectetur consequatur quo voluptates adipisci ipsa. Dolorem quaerat veritatis deserunt nihil aliquam Aspernatur dolorum ad autem ipsum iusto officiis Omnis.</Text>
-          <Text fontSize='md' lineHeight='24px' color='gray.500'>Consectetur consequatur quo voluptates adipisci ipsa. Dolorem quaerat veritatis deserunt nihil aliquam Aspernatur dolorum ad autem ipsum iusto officiis Omnis.</Text>
-          <Text fontSize='md' lineHeight='24px' color='gray.500'>Consectetur consequatur quo voluptates adipisci ipsa. Dolorem quaerat veritatis deserunt nihil aliquam Aspernatur dolorum ad autem ipsum iusto officiis Omnis.</Text>
-          <Text fontSize='md' lineHeight='24px' color='gray.500'>Consectetur consequatur quo voluptates adipisci ipsa. Dolorem quaerat veritatis deserunt nihil aliquam Aspernatur dolorum ad autem ipsum iusto officiis Omnis.</Text>
+        <Stack bg='white' mt={2} px={3} py={5}>
+          <HStack pb={3} borderColor={Colors.gray50} borderBottomWidth={1} mb={4} justifyContent='space-between' alignItems='center'>
+            <Heading size='xs' fontWeight='normal' numberOfLines={1} color='muted.400'>Ratings & Reviews (234)</Heading>
+            <Link
+              _text={{ fontSize: 'sm', color: 'orange.500' }}
+              onPress={() => navigation.navigate('Review')}
+            >View All</Link>
+          </HStack>
+
+          <ReviewList />
         </Stack>
+
+        <Stack bg='white' mt={2} px={3} py={5}>
+          <HStack pb={3} borderColor={Colors.gray50} borderBottomWidth={1} mb={4} justifyContent='space-between' alignItems='center'>
+            <Heading size='xs' fontWeight='normal' numberOfLines={1} color='muted.400'>Specifications</Heading>
+            <Link
+              _text={{ fontSize: 'sm', color: 'orange.500' }}
+              onPress={() => navigation.navigate('Review')}
+            >View All</Link>
+          </HStack>
+
+          <Text lineHeight='22px' color='muted.600' fontSize='md'>
+            Lorem sint tenetur ducimus ducimus expedita. Rerum pariatur unde magnam temporibus vel Velit totam earum explicabo commodi blanditiis. Eligendi temporibus.
+          </Text>
+        </Stack>
+
         <Box height={24} />
       </ScrollView>
 

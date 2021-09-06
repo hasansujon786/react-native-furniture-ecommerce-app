@@ -1,9 +1,17 @@
 import React from 'react'
-import {Box} from 'native-base'
+import { Box } from 'native-base'
+import { ScrollView } from 'react-native'
+import ReviewCard from '../components/ReviewCard'
 
 const ReviewScreen = () => {
   return (
-    <Box>ReviewScreen</Box>
+    <ScrollView contentContainerStyle={{ paddingBottom: 20}}>
+      <Box px={3}>
+        <ReviewCard></ReviewCard>
+        <ReviewCard></ReviewCard>
+        <ReviewCard></ReviewCard>
+      </Box>
+    </ScrollView>
   )
 }
 
